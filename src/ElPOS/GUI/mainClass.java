@@ -1,4 +1,4 @@
-package ElPOS.interfaces;
+package ElPOS.GUI;
 
 
 
