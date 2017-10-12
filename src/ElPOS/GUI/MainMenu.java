@@ -6,7 +6,14 @@
 package ElPOS.GUI;
 
 import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowListener;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -18,7 +25,9 @@ public class MainMenu extends javax.swing.JFrame {
      * Creates new form MainMenu
      */
     public MainMenu() {
+        this.setUndecorated(true);
         initComponents();
+        
     }
 
     /**
@@ -30,19 +39,32 @@ public class MainMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
         desktopPane = new javax.swing.JDesktopPane();
         escritorio = new javax.swing.JDesktopPane();
-        menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
-        exitMenuItem = new javax.swing.JMenuItem();
-        editMenu = new javax.swing.JMenu();
-        cutMenuItem = new javax.swing.JMenuItem();
-        copyMenuItem = new javax.swing.JMenuItem();
-        pasteMenuItem = new javax.swing.JMenuItem();
-        deleteMenuItem = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
-        aboutMenuItem = new javax.swing.JMenuItem();
+        saludoLabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        productosLabel = new javax.swing.JLabel();
+        tiendasLabel = new javax.swing.JLabel();
+        zLabel = new javax.swing.JLabel();
+        cajaLabel = new javax.swing.JLabel();
+        bodegasLabel = new javax.swing.JLabel();
+        tiendasLabel1 = new javax.swing.JLabel();
+        minLabel = new javax.swing.JLabel();
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenuItem2.setText("jMenuItem2");
+
+        jMenu2.setText("File");
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Edit");
+        jMenuBar1.add(jMenu3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,83 +72,109 @@ public class MainMenu extends javax.swing.JFrame {
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGap(0, 1140, Short.MAX_VALUE)
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 350, Short.MAX_VALUE)
+            .addGap(0, 580, Short.MAX_VALUE)
         );
 
         desktopPane.add(escritorio);
-        escritorio.setBounds(0, 0, 640, 350);
+        escritorio.setBounds(0, 80, 1140, 580);
 
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("File");
+        saludoLabel.setText("Hola, username.");
+        desktopPane.add(saludoLabel);
+        saludoLabel.setBounds(978, 10, 120, 15);
 
-        exitMenuItem.setMnemonic('x');
-        exitMenuItem.setText("Exit");
-        exitMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitMenuItemActionPerformed(evt);
+        jLabel2.setText("X");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
             }
         });
-        fileMenu.add(exitMenuItem);
+        desktopPane.add(jLabel2);
+        jLabel2.setBounds(1120, 15, 7, 10);
 
-        menuBar.add(fileMenu);
+        productosLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        productosLabel.setText("Productos");
+        productosLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                productosLabelMouseClicked(evt);
+            }
+        });
+        desktopPane.add(productosLabel);
+        productosLabel.setBounds(20, 30, 110, 30);
 
-        editMenu.setMnemonic('e');
-        editMenu.setText("Edit");
+        tiendasLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        tiendasLabel.setText("Historial");
+        desktopPane.add(tiendasLabel);
+        tiendasLabel.setBounds(580, 30, 100, 30);
 
-        cutMenuItem.setMnemonic('t');
-        cutMenuItem.setText("Cut");
-        editMenu.add(cutMenuItem);
+        zLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        zLabel.setText("Cierre Z");
+        desktopPane.add(zLabel);
+        zLabel.setBounds(230, 30, 90, 30);
 
-        copyMenuItem.setMnemonic('y');
-        copyMenuItem.setText("Copy");
-        editMenu.add(copyMenuItem);
+        cajaLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        cajaLabel.setText("Caja");
+        cajaLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cajaLabelMouseClicked(evt);
+            }
+        });
+        desktopPane.add(cajaLabel);
+        cajaLabel.setBounds(150, 30, 50, 30);
 
-        pasteMenuItem.setMnemonic('p');
-        pasteMenuItem.setText("Paste");
-        editMenu.add(pasteMenuItem);
+        bodegasLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        bodegasLabel.setText("Bodegas");
+        desktopPane.add(bodegasLabel);
+        bodegasLabel.setBounds(350, 30, 100, 30);
 
-        deleteMenuItem.setMnemonic('d');
-        deleteMenuItem.setText("Delete");
-        editMenu.add(deleteMenuItem);
+        tiendasLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        tiendasLabel1.setText("Tiendas");
+        desktopPane.add(tiendasLabel1);
+        tiendasLabel1.setBounds(470, 30, 100, 30);
 
-        menuBar.add(editMenu);
-
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Help");
-
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Contents");
-        helpMenu.add(contentMenuItem);
-
-        aboutMenuItem.setMnemonic('a');
-        aboutMenuItem.setText("About");
-        helpMenu.add(aboutMenuItem);
-
-        menuBar.add(helpMenu);
-
-        setJMenuBar(menuBar);
+        minLabel.setText("_");
+        minLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                minLabelMouseClicked(evt);
+            }
+        });
+        desktopPane.add(minLabel);
+        minLabel.setBounds(1100, 10, 10, 15);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1140, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 409, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitMenuItemActionPerformed
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        // TODO add your handling code here:
         salir();
-    }//GEN-LAST:event_exitMenuItemActionPerformed
+    }//GEN-LAST:event_jLabel2MouseClicked
+
+    private void cajaLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cajaLabelMouseClicked
+        // TODO add your handling code here:
+        mostrarCaja();
+    }//GEN-LAST:event_cajaLabelMouseClicked
+
+    private void productosLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productosLabelMouseClicked
+        mostrarProductos();
+    }//GEN-LAST:event_productosLabelMouseClicked
+
+    private void minLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minLabelMouseClicked
+      this.setState(Frame.ICONIFIED);
+    }//GEN-LAST:event_minLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -138,6 +186,7 @@ public class MainMenu extends javax.swing.JFrame {
                 //Arreglar esto
                 MainMenu menu = new MainMenu();
                 menu.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+                
                 menu.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -145,11 +194,40 @@ public class MainMenu extends javax.swing.JFrame {
                         salir();
                     }
                 });
-    
-                menu.setVisible(true);
                 
+                 menu.setVisible(true);
+                 
                   }
         });
+        
+    }
+    
+    private void mostrarProductos(){
+         ProductosGestion prodForm = new ProductosGestion();
+        escritorio.add(prodForm);
+        
+        Dimension escrSize = escritorio.getSize();
+        Dimension salSize = prodForm.getSize();
+         int width = (escrSize.width - salSize.width) / 2;
+         int height = (escrSize.height - salSize.height) / 2;
+        prodForm.setLocation(width, height);
+                
+        prodForm.show();
+        
+    }
+    
+    private void mostrarCaja(){
+        VentasGestion cajaForm = new VentasGestion();
+        escritorio.add(cajaForm);
+        
+        Dimension escrSize = escritorio.getSize();
+        Dimension salSize = cajaForm.getSize();
+         int width = (escrSize.width - salSize.width) / 2;
+         int height = (escrSize.height - salSize.height) / 2;
+        cajaForm.setLocation(width, height);
+                
+        cajaForm.show();
+        
     }
     
     
@@ -169,19 +247,22 @@ public class MainMenu extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem aboutMenuItem;
-    private javax.swing.JMenuItem contentMenuItem;
-    private javax.swing.JMenuItem copyMenuItem;
-    private javax.swing.JMenuItem cutMenuItem;
-    private javax.swing.JMenuItem deleteMenuItem;
+    private javax.swing.JLabel bodegasLabel;
+    private javax.swing.JLabel cajaLabel;
     private javax.swing.JDesktopPane desktopPane;
-    private javax.swing.JMenu editMenu;
     private javax.swing.JDesktopPane escritorio;
-    private javax.swing.JMenuItem exitMenuItem;
-    private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu helpMenu;
-    private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem pasteMenuItem;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JLabel minLabel;
+    private javax.swing.JLabel productosLabel;
+    private javax.swing.JLabel saludoLabel;
+    private javax.swing.JLabel tiendasLabel;
+    private javax.swing.JLabel tiendasLabel1;
+    private javax.swing.JLabel zLabel;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -100,6 +100,7 @@ public class LoginForm extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         MainMenu menu = new MainMenu();
+        
         menu.mostrar("admin");
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
