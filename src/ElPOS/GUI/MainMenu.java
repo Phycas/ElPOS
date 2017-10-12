@@ -49,7 +49,7 @@ public class MainMenu extends javax.swing.JFrame {
         saludoLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         productosLabel = new javax.swing.JLabel();
-        tiendasLabel = new javax.swing.JLabel();
+        historialLabel = new javax.swing.JLabel();
         zLabel = new javax.swing.JLabel();
         cajaLabel = new javax.swing.JLabel();
         bodegasLabel = new javax.swing.JLabel();
@@ -105,13 +105,23 @@ public class MainMenu extends javax.swing.JFrame {
         desktopPane.add(productosLabel);
         productosLabel.setBounds(20, 30, 110, 30);
 
-        tiendasLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        tiendasLabel.setText("Historial");
-        desktopPane.add(tiendasLabel);
-        tiendasLabel.setBounds(580, 30, 100, 30);
+        historialLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        historialLabel.setText("Historial");
+        historialLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                historialLabelMouseClicked(evt);
+            }
+        });
+        desktopPane.add(historialLabel);
+        historialLabel.setBounds(580, 30, 100, 30);
 
         zLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         zLabel.setText("Cierre Z");
+        zLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                zLabelMouseClicked(evt);
+            }
+        });
         desktopPane.add(zLabel);
         zLabel.setBounds(230, 30, 90, 30);
 
@@ -127,11 +137,21 @@ public class MainMenu extends javax.swing.JFrame {
 
         bodegasLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         bodegasLabel.setText("Bodegas");
+        bodegasLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bodegasLabelMouseClicked(evt);
+            }
+        });
         desktopPane.add(bodegasLabel);
         bodegasLabel.setBounds(350, 30, 100, 30);
 
         tiendasLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         tiendasLabel1.setText("Tiendas");
+        tiendasLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tiendasLabel1MouseClicked(evt);
+            }
+        });
         desktopPane.add(tiendasLabel1);
         tiendasLabel1.setBounds(470, 30, 100, 30);
 
@@ -176,6 +196,22 @@ public class MainMenu extends javax.swing.JFrame {
       this.setState(Frame.ICONIFIED);
     }//GEN-LAST:event_minLabelMouseClicked
 
+    private void zLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_zLabelMouseClicked
+        mostrarZ();
+    }//GEN-LAST:event_zLabelMouseClicked
+
+    private void bodegasLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bodegasLabelMouseClicked
+        mostrarBodegas();
+    }//GEN-LAST:event_bodegasLabelMouseClicked
+
+    private void tiendasLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tiendasLabel1MouseClicked
+        mostrarTiendas();
+    }//GEN-LAST:event_tiendasLabel1MouseClicked
+
+    private void historialLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historialLabelMouseClicked
+        mostrarHistorial();
+    }//GEN-LAST:event_historialLabelMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -202,6 +238,34 @@ public class MainMenu extends javax.swing.JFrame {
         
     }
     
+    private void mostrarHistorial(){
+         HistorialGestion hForm = new HistorialGestion();
+        escritorio.add(hForm);
+        
+        Dimension escrSize = escritorio.getSize();
+        Dimension salSize = hForm.getSize();
+         int width = (escrSize.width - salSize.width) / 2;
+         int height = (escrSize.height - salSize.height) / 2;
+        hForm.setLocation(width, height);
+                
+        hForm.show();
+        
+    }
+    
+    private void mostrarTiendas(){
+         TiendasGestion prodForm = new TiendasGestion();
+        escritorio.add(prodForm);
+        
+        Dimension escrSize = escritorio.getSize();
+        Dimension salSize = prodForm.getSize();
+         int width = (escrSize.width - salSize.width) / 2;
+         int height = (escrSize.height - salSize.height) / 2;
+        prodForm.setLocation(width, height);
+                
+        prodForm.show();
+        
+    }
+    
     private void mostrarProductos(){
          ProductosGestion prodForm = new ProductosGestion();
         escritorio.add(prodForm);
@@ -213,6 +277,34 @@ public class MainMenu extends javax.swing.JFrame {
         prodForm.setLocation(width, height);
                 
         prodForm.show();
+        
+    }
+    
+    private void mostrarZ(){
+         Zform zForm = new Zform();
+        escritorio.add(zForm);
+        
+        Dimension escrSize = escritorio.getSize();
+        Dimension salSize = zForm.getSize();
+         int width = (escrSize.width - salSize.width) / 2;
+         int height = (escrSize.height - salSize.height) / 2;
+        zForm.setLocation(width, height);
+                
+        zForm.show();
+        
+    }
+    
+    private void mostrarBodegas(){
+         BodegasGestion bForm = new BodegasGestion();
+        escritorio.add(bForm);
+        
+        Dimension escrSize = escritorio.getSize();
+        Dimension salSize = bForm.getSize();
+         int width = (escrSize.width - salSize.width) / 2;
+         int height = (escrSize.height - salSize.height) / 2;
+        bForm.setLocation(width, height);
+                
+        bForm.show();
         
     }
     
@@ -251,6 +343,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel cajaLabel;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JLabel historialLabel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -260,7 +353,6 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel minLabel;
     private javax.swing.JLabel productosLabel;
     private javax.swing.JLabel saludoLabel;
-    private javax.swing.JLabel tiendasLabel;
     private javax.swing.JLabel tiendasLabel1;
     private javax.swing.JLabel zLabel;
     // End of variables declaration//GEN-END:variables

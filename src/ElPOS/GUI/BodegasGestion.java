@@ -118,7 +118,7 @@ public class BodegasGestion extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarActionPerformed
-        // TODO add your handling code here:
+       dispose();
     }//GEN-LAST:event_botonCerrarActionPerformed
 
 
