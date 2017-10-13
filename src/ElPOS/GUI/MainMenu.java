@@ -8,28 +8,41 @@ package ElPOS.GUI;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.KeyStroke;
+import javax.swing.WindowConstants;
+import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
 
 /**
  *
  * @author Phycas
  */
-public class MainMenu extends javax.swing.JFrame {
+public class MainMenu extends javax.swing.JFrame{
 
     /**
      * Creates new form MainMenu
      */
+   
     public MainMenu() {
         this.setUndecorated(true);
-        initComponents();
-        
-    }
+        addWindowListener(new WindowAdapter() {
 
+                    @Override
+                    public void windowClosing(WindowEvent e) {
+                    salir();
+                }
+               }); //alfin
+        initComponents();
+      }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,6 +59,8 @@ public class MainMenu extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         desktopPane = new javax.swing.JDesktopPane();
         escritorio = new javax.swing.JDesktopPane();
+        helpButton = new javax.swing.JButton();
+        msn = new javax.swing.JLabel();
         saludoLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         productosLabel = new javax.swing.JLabel();
@@ -68,15 +83,32 @@ public class MainMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        helpButton.setText("?");
+
+        escritorio.setLayer(helpButton, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        escritorio.setLayer(msn, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
         escritorio.setLayout(escritorioLayout);
         escritorioLayout.setHorizontalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1140, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
+                .addContainerGap(1080, Short.MAX_VALUE)
+                .addComponent(helpButton)
+                .addGap(20, 20, 20))
+            .addGroup(escritorioLayout.createSequentialGroup()
+                .addGap(289, 289, 289)
+                .addComponent(msn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 580, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
+                .addContainerGap(526, Short.MAX_VALUE)
+                .addComponent(msn)
+                .addGap(18, 18, 18)
+                .addComponent(helpButton)
+                .addContainerGap())
         );
 
         desktopPane.add(escritorio);
@@ -216,22 +248,15 @@ public class MainMenu extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public void mostrar(String args) {
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                //Arreglar esto
                 MainMenu menu = new MainMenu();
                 menu.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
                 
-                menu.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        //esto no está funcionando. Arreglar
-                        salir();
-                    }
-                });
                 
-                 menu.setVisible(true);
+                menu.setVisible(true);
                  
                   }
         });
@@ -343,6 +368,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JLabel cajaLabel;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JButton helpButton;
     private javax.swing.JLabel historialLabel;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu2;
@@ -351,6 +377,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JLabel minLabel;
+    private javax.swing.JLabel msn;
     private javax.swing.JLabel productosLabel;
     private javax.swing.JLabel saludoLabel;
     private javax.swing.JLabel tiendasLabel1;
