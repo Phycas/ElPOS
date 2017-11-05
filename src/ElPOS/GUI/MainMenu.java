@@ -5,6 +5,8 @@
  */
 package ElPOS.GUI;
 
+import ElPOS.DB.MaquetaDatos;
+import ElPOS.Logica.Persona;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
@@ -18,6 +20,7 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 import javax.swing.WindowConstants;
 import static javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE;
@@ -31,9 +34,12 @@ public class MainMenu extends javax.swing.JFrame{
     /**
      * Creates new form MainMenu
      */
-   
-    public MainMenu() {
+   private Persona usuario;
+    public MainMenu(MaquetaDatos datos, Persona user) {
+        Persona usuario = new Persona();
         this.setUndecorated(true);
+        
+        //configurarGUI();
         addWindowListener(new WindowAdapter() {
 
                     @Override
@@ -41,6 +47,7 @@ public class MainMenu extends javax.swing.JFrame{
                     salir();
                 }
                }); //alfin
+        
         initComponents();
       }
     /**
@@ -116,7 +123,7 @@ public class MainMenu extends javax.swing.JFrame{
 
         saludoLabel.setText("Hola, username.");
         desktopPane.add(saludoLabel);
-        saludoLabel.setBounds(978, 10, 120, 15);
+        saludoLabel.setBounds(978, 10, 120, 14);
 
         jLabel2.setText("X");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -125,7 +132,7 @@ public class MainMenu extends javax.swing.JFrame{
             }
         });
         desktopPane.add(jLabel2);
-        jLabel2.setBounds(1120, 15, 7, 10);
+        jLabel2.setBounds(1120, 15, 6, 10);
 
         productosLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         productosLabel.setText("Productos");
@@ -194,7 +201,7 @@ public class MainMenu extends javax.swing.JFrame{
             }
         });
         desktopPane.add(minLabel);
-        minLabel.setBounds(1100, 10, 10, 15);
+        minLabel.setBounds(1100, 10, 10, 14);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -247,19 +254,34 @@ public class MainMenu extends javax.swing.JFrame{
     /**
      * @param args the command line arguments
      */
-    public void mostrar(String args) {
-        
+    public void mostrar(MaquetaDatos datos, Persona user) {
+        usuario = user;
+        configurarGUI(user);
+       // configurarGUI(user);
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                MainMenu menu = new MainMenu();
+                MainMenu menu = new MainMenu(datos, user);
                 menu.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-                
+                saludoLabel.setText("error");
                 
                 menu.setVisible(true);
                  
                   }
         });
+        
+    }
+    
+    private void configurarGUI(Persona user){
+        try{
+        saludoLabel.setText(usuario.getNombre());
+        } catch(Exception ex){
+            saludoLabel.setText("error");
+            mostrarError(ex);
+        }
+    }
+    
+    private void actualizarMaqueta(){
         
     }
     
@@ -274,7 +296,12 @@ public class MainMenu extends javax.swing.JFrame{
         hForm.setLocation(width, height);
                 
         hForm.show();
-        
+        try{
+        saludoLabel.setText(usuario.getNombre());
+        } catch(Exception ex){
+            saludoLabel.setText("error");
+            mostrarError(ex);
+        }
     }
     
     private void mostrarTiendas(){
@@ -360,8 +387,15 @@ public class MainMenu extends javax.swing.JFrame{
                 
         salirForm.show();
     }
+    public void mostrarError(String error){
+        JOptionPane.showMessageDialog(this,
+    error);
+    }
     
-    
+    public void mostrarError(Exception error){
+        JOptionPane.showMessageDialog(this,
+    error);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bodegasLabel;
