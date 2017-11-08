@@ -9,6 +9,12 @@ package ElPOS.Logica;
  * @author Phycas
  */
 public class Login {
+    
+    public static boolean existe(String usuario, String clave){
+        boolean sino = false;
+        
+        return sino;
+    }
     public static void logear(String usuario, String clave){
         validarLogin(usuario, clave);
     }
@@ -19,4 +25,7 @@ public class Login {
     private static void menuPrincipal(Persona persona){
         //abrir menu principal, pasar objeto Persona.
     }
+    
 }
+    
+    

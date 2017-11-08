@@ -3,15 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Phycas/workspace/ElPOS/ElPOS/src/ElPOS/GUI/HistorialGestion.java</file>
-            <file>file:/C:/Users/Phycas/workspace/ElPOS/ElPOS/src/ElPOS/Logica/Persona.java</file>
-            <file>file:/C:/Users/Phycas/workspace/ElPOS/ElPOS/src/ElPOS/Logica/Rut.java</file>
-            <file>file:/C:/Users/Phycas/workspace/ElPOS/ElPOS/src/ElPOS/Logica/Login.java</file>
-            <file>file:/C:/Users/Phycas/workspace/ElPOS/ElPOS/src/ElPOS/GUI/LoginForm.java</file>
-            <file>file:/C:/Users/Phycas/workspace/ElPOS/ElPOS/src/ElPOS/GUI/mainClass.java</file>
-            <file>file:/C:/Users/Phycas/workspace/ElPOS/ElPOS/src/ElPOS/DB/MaquetaDatos.java</file>
-            <file>file:/C:/Users/Phycas/workspace/ElPOS/ElPOS/src/ElPOS/GUI/MainMenu.java</file>
-            <file>file:/C:/Users/Phycas/workspace/ElPOS/ElPOS/src/ElPOS/Logica/Permisos.java</file>
+            <file>file:/C:/Users/Phycas/Documents/NetBeansProjects/ElPOS_NicolasPartarrieu/src/ElPOS/GUI/LoginForm.java</file>
+            <file>file:/C:/Users/Phycas/Documents/NetBeansProjects/ElPOS_NicolasPartarrieu/src/ElPOS/GUI/MainMenu.java</file>
         </group>
     </open-files>
 </project-private>

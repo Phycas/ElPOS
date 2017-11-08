@@ -34,21 +34,25 @@ public class MainMenu extends javax.swing.JFrame{
     /**
      * Creates new form MainMenu
      */
-   private Persona usuario;
-    public MainMenu(MaquetaDatos datos, Persona user) {
-        Persona usuario = new Persona();
+   
+    public MainMenu(Persona user) {
+        Persona usuario = new Persona(user);
         this.setUndecorated(true);
         
-        //configurarGUI();
+        
         addWindowListener(new WindowAdapter() {
 
                     @Override
                     public void windowClosing(WindowEvent e) {
                     salir();
                 }
-               }); //alfin
+               }); 
         
         initComponents();
+        
+        //saludoLabel = label esquina superior derecha 
+        saludoLabel.setText("Bienvenido, " + user.getNombre() + ".");
+        
       }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -123,7 +127,7 @@ public class MainMenu extends javax.swing.JFrame{
 
         saludoLabel.setText("Hola, username.");
         desktopPane.add(saludoLabel);
-        saludoLabel.setBounds(978, 10, 120, 14);
+        saludoLabel.setBounds(950, 10, 120, 16);
 
         jLabel2.setText("X");
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -132,7 +136,7 @@ public class MainMenu extends javax.swing.JFrame{
             }
         });
         desktopPane.add(jLabel2);
-        jLabel2.setBounds(1120, 15, 6, 10);
+        jLabel2.setBounds(1090, 10, 8, 10);
 
         productosLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         productosLabel.setText("Productos");
@@ -201,7 +205,7 @@ public class MainMenu extends javax.swing.JFrame{
             }
         });
         desktopPane.add(minLabel);
-        minLabel.setBounds(1100, 10, 10, 14);
+        minLabel.setBounds(1070, 0, 10, 16);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -254,17 +258,14 @@ public class MainMenu extends javax.swing.JFrame{
     /**
      * @param args the command line arguments
      */
-    public void mostrar(MaquetaDatos datos, Persona user) {
-        usuario = user;
-        configurarGUI(user);
-       // configurarGUI(user);
+    public void mostrar(Persona user) {
+       
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                MainMenu menu = new MainMenu(datos, user);
+                MainMenu menu = new MainMenu(user);
                 menu.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-                saludoLabel.setText("error");
-                
                 menu.setVisible(true);
                  
                   }
@@ -274,10 +275,9 @@ public class MainMenu extends javax.swing.JFrame{
     
     private void configurarGUI(Persona user){
         try{
-        saludoLabel.setText(usuario.getNombre());
+        
         } catch(Exception ex){
-            saludoLabel.setText("error");
-            mostrarError(ex);
+            
         }
     }
     
@@ -296,12 +296,7 @@ public class MainMenu extends javax.swing.JFrame{
         hForm.setLocation(width, height);
                 
         hForm.show();
-        try{
-        saludoLabel.setText(usuario.getNombre());
-        } catch(Exception ex){
-            saludoLabel.setText("error");
-            mostrarError(ex);
-        }
+        
     }
     
     private void mostrarTiendas(){

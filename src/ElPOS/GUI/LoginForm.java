@@ -46,7 +46,7 @@ public class LoginForm extends javax.swing.JDialog {
         helpButton = new javax.swing.JButton();
         erLabel = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jLabel3 = new javax.swing.JTextArea();
+        consolin = new javax.swing.JTextArea();
 
         dialogo.setTitle("Error");
 
@@ -93,9 +93,9 @@ public class LoginForm extends javax.swing.JDialog {
 
         erLabel.setForeground(new java.awt.Color(255, 51, 51));
 
-        jLabel3.setColumns(20);
-        jLabel3.setRows(5);
-        jScrollPane3.setViewportView(jLabel3);
+        consolin.setColumns(20);
+        consolin.setRows(5);
+        jScrollPane3.setViewportView(consolin);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -153,52 +153,24 @@ public class LoginForm extends javax.swing.JDialog {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       
         /* 
-        Comienza código de maqueta
+        validar usuario/contraseña
         */
-        MaquetaDatos datos = new MaquetaDatos();
-         jLabel3.setText(Integer.toString(datos.Personas.size()));
+        
         //comprobar nombre de usuario y contraseña
-        boolean esOno = false;
-        ArrayList<Persona> pers = new ArrayList<Persona>();
+        boolean esOno = true; //inicializacion variable de validacion (def. false)
         String passw = String.valueOf(uPassT.getPassword());
         String uname = uNameT.getText();
         
-        /* for (int i = 0; i > datos.Personas.size(); i++) {
-            Persona user = datos.getPersonas().get(i);
-            jLabel3.setText("en el loop");
-            if(user.getUser().equals(uNameT.getText())){
-                String passw = uPassT.getPassword().toString();
-                if((user.getPass().equals(passw))){
-                esOno = true;//esOno = coincide la pass?
-                break;
-                }
-            }
-        } */
-        Persona user = new Persona();
-        int count = 0;
-        while(count < datos.Personas.size()){
-            user = datos.getPersonas().get(count);
-            jLabel3.setText(jLabel3.getText() + "\n " + user.getUser());
-            
-            jLabel3.setText(jLabel3.getText() + "\n " + user.getPass());
-            jLabel3.setText(jLabel3.getText() + "\n " + uPassT.getPassword().toString());
-            jLabel3.setText(jLabel3.getText() + "\n " + (user.getUser().equals(uname)));
-            if(user.getUser().equals(uname)){
-                if((user.getPass().equals(passw))){
-                esOno = true;//esOno = coincide la pass?
-                break;
-                }
-            }
-            count++;
-        }
         
-        /*
-        Termina código de maqueta
-        */
+        Persona user = new Persona(); //inicializacion del usuario que se esta logeando
+        //llenar user con datos de la base de datos
         
-        MainMenu menu = new MainMenu(datos, user);
+       
+        
+        MainMenu menu = new MainMenu(user);
+        //si user/pass es correcto pasar al menu principal
         if(esOno){
-        menu.mostrar(datos, user);
+        menu.mostrar(user);
         dispose();
         } else{
             erLabel.setText("E: Usuario/Clave incorrectos");
@@ -254,6 +226,7 @@ public class LoginForm extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea consolin;
     private javax.swing.JDialog dialogo;
     private javax.swing.JLabel erLabel;
     private javax.swing.JButton helpButton;
@@ -261,7 +234,6 @@ public class LoginForm extends javax.swing.JDialog {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextArea jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
