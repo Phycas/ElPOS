@@ -5,7 +5,7 @@
  */
 package ElPOS.GUI;
 
-import ElPOS.DB.MaquetaDatos;
+
 import ElPOS.Logica.Persona;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -75,12 +75,13 @@ public class MainMenu extends javax.swing.JFrame{
         saludoLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         productosLabel = new javax.swing.JLabel();
-        historialLabel = new javax.swing.JLabel();
+        personalLabel = new javax.swing.JLabel();
         zLabel = new javax.swing.JLabel();
         cajaLabel = new javax.swing.JLabel();
         bodegasLabel = new javax.swing.JLabel();
         tiendasLabel1 = new javax.swing.JLabel();
         minLabel = new javax.swing.JLabel();
+        historialLabel1 = new javax.swing.JLabel();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -148,15 +149,15 @@ public class MainMenu extends javax.swing.JFrame{
         desktopPane.add(productosLabel);
         productosLabel.setBounds(20, 30, 110, 30);
 
-        historialLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        historialLabel.setText("Historial");
-        historialLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+        personalLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        personalLabel.setText("Personal");
+        personalLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                historialLabelMouseClicked(evt);
+                personalLabelMouseClicked(evt);
             }
         });
-        desktopPane.add(historialLabel);
-        historialLabel.setBounds(580, 30, 100, 30);
+        desktopPane.add(personalLabel);
+        personalLabel.setBounds(680, 30, 100, 30);
 
         zLabel.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
         zLabel.setText("Cierre Z");
@@ -207,6 +208,16 @@ public class MainMenu extends javax.swing.JFrame{
         desktopPane.add(minLabel);
         minLabel.setBounds(1070, 0, 10, 16);
 
+        historialLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        historialLabel1.setText("Historial");
+        historialLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                historialLabel1MouseClicked(evt);
+            }
+        });
+        desktopPane.add(historialLabel1);
+        historialLabel1.setBounds(580, 30, 100, 30);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -251,9 +262,13 @@ public class MainMenu extends javax.swing.JFrame{
         mostrarTiendas();
     }//GEN-LAST:event_tiendasLabel1MouseClicked
 
-    private void historialLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historialLabelMouseClicked
-        mostrarHistorial();
-    }//GEN-LAST:event_historialLabelMouseClicked
+    private void personalLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_personalLabelMouseClicked
+        mostarPersonal();
+    }//GEN-LAST:event_personalLabelMouseClicked
+
+    private void historialLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historialLabel1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_historialLabel1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -280,11 +295,39 @@ public class MainMenu extends javax.swing.JFrame{
             
         }
     }
-    
-    private void actualizarMaqueta(){
+    public void cuf(){
+        CrearUsuarioForm uForm = new CrearUsuarioForm();
+        mostrarCrearUsuario(uForm);
+        
+    }
+    private void mostrarCrearUsuario(CrearUsuarioForm uForm){
+        //abrir ventana CrearUsuarioForm
+        
+        escritorio.add(uForm);
+        
+        Dimension escrSize = escritorio.getSize();
+        Dimension salSize = uForm.getSize();
+         int width = (escrSize.width - salSize.width) / 2;
+         int height = (escrSize.height - salSize.height) / 2;
+        uForm.setLocation(width, height);
+                
+        uForm.show();
         
     }
     
+   private void mostarPersonal(){
+       //abrir ventana PersonalGestion
+        PersonalGestion perForm = new PersonalGestion(this);
+        escritorio.add(perForm);
+        
+        Dimension escrSize = escritorio.getSize();
+        Dimension salSize = perForm.getSize();
+         int width = (escrSize.width - salSize.width) / 2;
+         int height = (escrSize.height - salSize.height) / 2;
+        perForm.setLocation(width, height);
+                
+        perForm.show();
+   }    
     private void mostrarHistorial(){
          HistorialGestion hForm = new HistorialGestion();
         escritorio.add(hForm);
@@ -398,7 +441,7 @@ public class MainMenu extends javax.swing.JFrame{
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JButton helpButton;
-    private javax.swing.JLabel historialLabel;
+    private javax.swing.JLabel historialLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -407,6 +450,7 @@ public class MainMenu extends javax.swing.JFrame{
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JLabel minLabel;
     private javax.swing.JLabel msn;
+    private javax.swing.JLabel personalLabel;
     private javax.swing.JLabel productosLabel;
     private javax.swing.JLabel saludoLabel;
     private javax.swing.JLabel tiendasLabel1;

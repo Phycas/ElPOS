@@ -9,14 +9,18 @@ public class Rut {
 	String dv;
 
 	
-	public Rut(Integer r, String d){
-		/*Boolean retVal = verificarRut(r, d);
+	public Rut(Integer r, String d) throws Exception{
+		Boolean retVal = verificarRut(r, d);
 		
 		if(!retVal) {
 			throw new Exception("Rut no Válido");
-		}*/
+		}
                 this.rut = r;
                 this.dv = d;
+	}
+        
+        public Rut() {
+		
 	}
 	
 	private Boolean verificarRut(Integer rut2, String dv2) {

@@ -20,6 +20,7 @@ public class Login {
     }
     private static void validarLogin(String usuario, String clave){
         //comprobar si el usuario existe
+        
     }
     
     private static void menuPrincipal(Persona persona){

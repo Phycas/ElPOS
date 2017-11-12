@@ -19,6 +19,7 @@ public class Persona {
     private String nombre;
     private String apellido;
     private Rut rut;
+    private String mail;
     //cargo en la empresa
      private String cargo;
   
@@ -30,10 +31,13 @@ public class Persona {
       this.apellido = p.apellido;
       this.rut = p.rut;
       this.cargo = p.cargo;
+      this.mail = p.mail;
     }
     
     //default constructor
+    // Constructor por defecto
     public Persona(){
+        try{
       this.user = "god";
       this.pass = "jesus0000";
       this.permisos = new Permisos(1,1,1,1,1);
@@ -41,20 +45,25 @@ public class Persona {
       this.apellido = "Todo Poderoso";
       this.rut = new Rut(77777777,"7");
       this.cargo = "Amo y señor del cielo y de la tierra";
+      this.mail = "dios@godmail.god";
+        } catch (Exception ex){
+            
+        }
     }
     
-    // usuario, pass, nombre, apellido, cargo, Rut, permisos
-    public Persona(String u, String p, String n, String a, 
+    // usuario, pass, nombre, apellido, mail, cargo, Rut, permisos
+    public Persona(String u, String p, String n, String a, String m,
             String c, Rut r, Permisos permi){
       this.user = u;
       this.pass = p;
       this.permisos = permi;
       this.nombre = n;
       this.apellido = a;
+      this.mail = m;
       this.rut = r;
       this.cargo = c;
     }
-    
+
     public String getUser() {
         return user;
     }
@@ -100,8 +109,15 @@ public class Persona {
     }
 
     public void setRut(Rut rut) {
-        //arreglar aquí?
         this.rut = rut;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
     public String getCargo() {
@@ -111,5 +127,6 @@ public class Persona {
     public void setCargo(String cargo) {
         this.cargo = cargo;
     }
+    
     
 }
