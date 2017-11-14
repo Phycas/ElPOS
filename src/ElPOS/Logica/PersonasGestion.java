@@ -22,6 +22,9 @@ public class PersonasGestion {
             String c, Rut r, Permisos permi) throws Exception{
         Persona persona = new Persona(u,p,n,a,m,c,r,permi);
         
+        //comprobar rut
+        //comprobar que usuario no se repite en la DB
+        
         try{
         crearPersona(persona);
         } catch(Exception ex){

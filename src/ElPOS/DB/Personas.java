@@ -17,10 +17,12 @@ import java.sql.Statement;
  */
 public class Personas {
     
+    //ver si X persona existe en la DB
     public static boolean existe(String user, String pass){
         boolean esreal = false;
         
-        
+        // terminar
+   
         return esreal;
     }
     

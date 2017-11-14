@@ -5,6 +5,7 @@
 
 package ElPOS.GUI;
 
+import ElPOS.Logica.Persona;
 import ElPOS.Logica.PersonasGestion;
 import javax.swing.JTable;
 
@@ -153,6 +154,30 @@ public class PersonalGestion extends javax.swing.JInternalFrame {
             String er = ex.getMessage();
             Mensajes.mostarError(er);
         }
+    }
+    
+    //retorna la persona seleccionada en la tabla
+    private Persona getSel(){
+        Persona sel = new Persona();
+        
+        int col = 1;
+        int row = tabla.getSelectedRow();
+        
+        String user = usuarioTF.getText();
+        String pass = ;
+        String nombre = ;
+        
+        String mail = mailTF.getText();
+        String apellido = apellidoTF.getText();
+        String cargo = cargoTF.getText();
+        
+        boolean admin = adminRB.isSelected();
+        boolean ventas = ventasRB.isSelected();
+        boolean bodega = bodegaRB.isSelected();
+        boolean historial = historialRB.isSelected();
+        boolean productos = productosRB.isSelected();
+        
+        return sel;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
