@@ -7,6 +7,8 @@ package ElPOS.GUI;
 
 import ElPOS.Logica.Persona;
 import ElPOS.Logica.PersonasGestion;
+import java.awt.Dimension;
+import java.util.ArrayList;
 import javax.swing.JTable;
 
 /**
@@ -51,6 +53,11 @@ public class PersonalGestion extends javax.swing.JInternalFrame {
         });
 
         jButton5.setText("Editar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         helpButton.setText("?");
 
@@ -136,13 +143,36 @@ public class PersonalGestion extends javax.swing.JInternalFrame {
 
     private void botonCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCerrarActionPerformed
         dispose();
-        
+
     }//GEN-LAST:event_botonCerrarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        mostrarCrear(); 
+        mostrarCrear();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // abrir ventana editar usuario
+        //abrir ventana CrearUsuarioForm
+        
+        mostrarEditarUsuario();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void mostrarEditarUsuario(){
+        //abrir ventana CrearUsuarioForm
+        
+       EditarPersona edForm = new EditarPersona(getSel());
+        mainM.getEscritorio().add(edForm);
+        
+        Dimension escrSize = mainM.getEscritorio().getSize();
+        Dimension salSize = mainM.getEscritorio().getSize();
+         int width = (escrSize.width - salSize.width) / 2;
+         int height = (escrSize.height - salSize.height) / 2;
+        edForm.setLocation(width, height);
+                
+        edForm.show();
+        
+    }
+    
     private void mostrarCrear(){
         mainM.cuf();
     }
@@ -152,7 +182,7 @@ public class PersonalGestion extends javax.swing.JInternalFrame {
         tabla.setModel(PersonasGestion.buildTableModel());
         } catch (Exception ex){
             String er = ex.getMessage();
-            Mensajes.mostarError(er);
+            Mensajes.mostrarError(er);
         }
     }
     
@@ -160,23 +190,18 @@ public class PersonalGestion extends javax.swing.JInternalFrame {
     private Persona getSel(){
         Persona sel = new Persona();
         
-        int col = 1;
         int row = tabla.getSelectedRow();
-        
-        String user = usuarioTF.getText();
-        String pass = ;
-        String nombre = ;
-        
-        String mail = mailTF.getText();
-        String apellido = apellidoTF.getText();
-        String cargo = cargoTF.getText();
-        
-        boolean admin = adminRB.isSelected();
-        boolean ventas = ventasRB.isSelected();
-        boolean bodega = bodegaRB.isSelected();
-        boolean historial = historialRB.isSelected();
-        boolean productos = productosRB.isSelected();
-        
+        String user = "phycas";
+        try{
+        user = tabla.getValueAt(1,row).toString();
+        } catch(Exception ex){
+            Mensajes.mostrarError(ex.getMessage());
+        }
+        try{
+        sel = PersonasGestion.bPersonaUser(user);
+        } catch (Exception ex){
+            Mensajes.mostrarError(ex.getMessage());
+        }
         return sel;
     }
 

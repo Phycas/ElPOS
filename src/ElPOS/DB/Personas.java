@@ -49,6 +49,32 @@ public class Personas {
 		}
     }
     
+    public static void editPerson(Persona p){
+       
+    }
+    
+    public static ResultSet buscarPersonaU(String user)throws Exception{
+        StringBuilder query = new StringBuilder();
+        Persona pers = new Persona();
+        query.append("SELECT * FROM personas WHERE usuario=");
+        query.append(user);
+        query.append(";");
+        
+        ResultSet rs = null;
+        try{
+            Connection con = PhyDB.getConnection();
+            Statement sta = con.createStatement();
+            rs = sta.executeQuery(query.toString());
+	}catch(Exception ex)
+		{
+			throw new Exception("Error al ejecutar la query, contacte a IT");
+		}
+        
+        
+        return rs;
+        
+    }
+    
     
     public static ResultSet getTabla(){
         ResultSet rs = null;

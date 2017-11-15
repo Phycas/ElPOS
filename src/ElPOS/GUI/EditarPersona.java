@@ -5,6 +5,7 @@
 package ElPOS.GUI;
 
 import ElPOS.Logica.Permisos;
+import ElPOS.Logica.Persona;
 import ElPOS.Logica.PersonasGestion;
 import ElPOS.Logica.Rut;
 
@@ -12,14 +13,16 @@ import ElPOS.Logica.Rut;
  *
  * @author Phycas
  */
-public class CrearUsuarioForm extends javax.swing.JInternalFrame {
-    private Rut uRut = new Rut();
+public class EditarPersona extends javax.swing.JInternalFrame {
+    //Declaracion de variables
+    private Persona este;
     /**
-     * Creates new form CrearUsuarioForm
+     * Creates new form EditarPersona
      */
-    public CrearUsuarioForm() {
+    public EditarPersona(Persona u) {
+        este = u;
         initComponents();
-        
+        configurar();
     }
 
     /**
@@ -31,13 +34,11 @@ public class CrearUsuarioForm extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ingresarButton = new javax.swing.JButton();
-        cancelarButton = new javax.swing.JButton();
-        usuarioTF = new javax.swing.JTextField();
-        nombreTF = new javax.swing.JTextField();
-        passTF = new javax.swing.JTextField();
-        apellidoTF = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        bodegaRB = new javax.swing.JRadioButton();
+        historialRB = new javax.swing.JRadioButton();
+        productosRB = new javax.swing.JRadioButton();
+        rutTF2 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -48,36 +49,29 @@ public class CrearUsuarioForm extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         cargoTF = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        ingresarButton = new javax.swing.JButton();
+        cancelarButton = new javax.swing.JButton();
+        usuarioTF = new javax.swing.JTextField();
+        nombreTF = new javax.swing.JTextField();
+        passTF = new javax.swing.JTextField();
+        apellidoTF = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         adminRB = new javax.swing.JRadioButton();
         ventasRB = new javax.swing.JRadioButton();
-        bodegaRB = new javax.swing.JRadioButton();
-        historialRB = new javax.swing.JRadioButton();
-        productosRB = new javax.swing.JRadioButton();
-        rutTF2 = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        rutErr = new javax.swing.JLabel();
 
-        ingresarButton.setText("Ingresar");
-        ingresarButton.addActionListener(new java.awt.event.ActionListener() {
+        bodegaRB.setText("Bodega");
+
+        historialRB.setText("Auditoria");
+
+        productosRB.setText("Inventario");
+
+        rutTF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ingresarButtonActionPerformed(evt);
+                rutTF2ActionPerformed(evt);
             }
         });
 
-        cancelarButton.setText("Cancelar");
-        cancelarButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelarButtonActionPerformed(evt);
-            }
-        });
-
-        passTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passTFActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Usuario");
+        jLabel9.setText("-");
 
         jLabel2.setText("Contraseña");
 
@@ -99,6 +93,28 @@ public class CrearUsuarioForm extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Cargo");
 
+        ingresarButton.setText("Aceptar");
+        ingresarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ingresarButtonActionPerformed(evt);
+            }
+        });
+
+        cancelarButton.setText("Cancelar");
+        cancelarButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarButtonActionPerformed(evt);
+            }
+        });
+
+        passTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                passTFActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Usuario");
+
         adminRB.setText("Admin");
 
         ventasRB.setText("Ventas");
@@ -108,29 +124,12 @@ public class CrearUsuarioForm extends javax.swing.JInternalFrame {
             }
         });
 
-        bodegaRB.setText("Bodega");
-
-        historialRB.setText("Auditoria");
-
-        productosRB.setText("Inventario");
-
-        rutTF2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rutTF2ActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setText("-");
-
-        rutErr.setForeground(new java.awt.Color(255, 51, 51));
-        rutErr.setEnabled(false);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(ingresarButton)
@@ -148,36 +147,37 @@ public class CrearUsuarioForm extends javax.swing.JInternalFrame {
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cargoTF, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(rutTF, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rutTF2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4)
-                                .addComponent(rutErr))
+                            .addComponent(cargoTF)
                             .addComponent(apellidoTF)
                             .addComponent(nombreTF)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(usuarioTF, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(passTF, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(mailTF)
+                            .addComponent(mailTF, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(adminRB)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ventasRB))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(bodegaRB)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(historialRB))
-                            .addComponent(productosRB))))
-                .addContainerGap(42, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rutTF, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(8, 8, 8)
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(rutTF2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(usuarioTF, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(passTF, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(adminRB)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(ventasRB))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(bodegaRB)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(historialRB))
+                                    .addComponent(productosRB))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(usuarioTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -198,8 +198,7 @@ public class CrearUsuarioForm extends javax.swing.JInternalFrame {
                     .addComponent(rutTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(rutTF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(rutErr))
+                    .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -219,15 +218,71 @@ public class CrearUsuarioForm extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cargoTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ingresarButton)
                     .addComponent(cancelarButton))
-                .addGap(24, 24, 24))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void rutTF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rutTF2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rutTF2ActionPerformed
+
+    private void rutTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rutTFActionPerformed
+        
+    }//GEN-LAST:event_rutTFActionPerformed
+
+    private void configurar(){
+       nombreTF.setText(este.getNombre());
+       apellidoTF.setText(este.getApellido());
+       usuarioTF.setText(este.getUser());
+       passTF.setText(este.getPass());
+       mailTF.setText(este.getMail());
+       cargoTF.setText(este.getCargo());
+       
+       
+    }
+    
+    private void ingresarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarButtonActionPerformed
+        // Intentar editar la Persona
+        este.setNombre(nombreTF.getText());
+        este.setPass(passTF.getText());
+        este.setUser(usuarioTF.getText());
+        este.setMail(mailTF.getText());
+        este.setApellido(apellidoTF.getText());
+        este.setCargo(cargoTF.getText());
+        
+        este.setPermisos(new Permisos(adminRB.isSelected(),
+                ventasRB.isSelected(), bodegaRB.isSelected(),
+                historialRB.isSelected(), productosRB.isSelected()));
+        
+        Rut uRut = new Rut();
+        try{
+            uRut = new Rut(
+                Integer.parseInt(rutTF.getText()), rutTF2.getText());
+        } catch (Exception ex){
+            Mensajes.mostrarError("Rut invalido");
+        }
+        
+        este.setRut(uRut);
+        
+        try{
+            PersonasGestion.editarPersona(este);
+            dispose(); 
+        } catch(Exception ex){
+            Mensajes.mostrarError(ex.getMessage());
+        }
+        
+        
+    }//GEN-LAST:event_ingresarButtonActionPerformed
+
+    private void cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButtonActionPerformed
+        dispose();
+    }//GEN-LAST:event_cancelarButtonActionPerformed
 
     private void passTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passTFActionPerformed
         // TODO add your handling code here:
@@ -236,58 +291,6 @@ public class CrearUsuarioForm extends javax.swing.JInternalFrame {
     private void ventasRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ventasRBActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ventasRBActionPerformed
-
-    private void rutTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rutTFActionPerformed
-        // comprobar si el rut esta bien
-        rutErr.setText("");
-        try{
-        uRut = new Rut(
-                Integer.parseInt(rutTF.getText()), rutTF2.getText());
-        } catch (Exception ex){
-            rutErr.setText("Rut invalido");
-        }
-        
-    }//GEN-LAST:event_rutTFActionPerformed
-
-    private void rutTF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rutTF2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rutTF2ActionPerformed
-
-    private void ingresarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarButtonActionPerformed
-        // Intentar ingresar la Persona
-        String nombre =  nombreTF.getText();
-        String pass = passTF.getText();
-        String user = usuarioTF.getText();
-        String mail = mailTF.getText();
-        String apellido = apellidoTF.getText();
-        String cargo = cargoTF.getText();
-        
-        boolean admin = adminRB.isSelected();
-        boolean ventas = ventasRB.isSelected();
-        boolean bodega = bodegaRB.isSelected();
-        boolean historial = historialRB.isSelected();
-        boolean productos = productosRB.isSelected();
-         try{
-        uRut = new Rut(
-                Integer.parseInt(rutTF.getText()), rutTF2.getText());
-        } catch (Exception ex){
-            rutErr.setText("Rut invalido");
-        }
-         Permisos permis = new Permisos(admin, ventas, bodega, historial, productos);
-        try{
-            //(String u, String p, String n, String a, String m,String c, Rut r, Permisos permi)
-            PersonasGestion.ingresarPersona(user, pass, nombre, apellido, mail, cargo, uRut, permis);
-            Mensajes.mostrarError("Usuario creado exitosamente");
-        } catch(Exception ex){
-            Mensajes.mostrarError(ex.getMessage());
-        }
-        
-        dispose();
-    }//GEN-LAST:event_ingresarButtonActionPerformed
-
-    private void cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButtonActionPerformed
-        dispose();    
-    }//GEN-LAST:event_cancelarButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -311,7 +314,6 @@ public class CrearUsuarioForm extends javax.swing.JInternalFrame {
     private javax.swing.JTextField nombreTF;
     private javax.swing.JTextField passTF;
     private javax.swing.JRadioButton productosRB;
-    private javax.swing.JLabel rutErr;
     private javax.swing.JTextField rutTF;
     private javax.swing.JTextField rutTF2;
     private javax.swing.JTextField usuarioTF;

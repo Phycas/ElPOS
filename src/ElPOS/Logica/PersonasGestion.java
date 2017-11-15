@@ -3,6 +3,7 @@ Esta clase gestiona la informacion de la tabla personas
  */
 package ElPOS.Logica;
 
+import static ElPOS.DB.Personas.buscarPersonaU;
 import static ElPOS.DB.Personas.crearPersona;
 import static ElPOS.DB.Personas.getTabla;
 import static ElPOS.DB.Personas.registrarADIOS;
@@ -30,6 +31,10 @@ public class PersonasGestion {
         } catch(Exception ex){
             throw new Exception("Error de datos");
         }
+    }
+    
+    public static void editarPersona(Persona user) throws Exception{
+        
     }
     
     //TableModel con datos de tabla personas
@@ -60,8 +65,17 @@ public class PersonasGestion {
 
 }
     
-    
-    public static void ingresarPersona(Persona p){
+        
+        //buscar persona por rut en tabla personas
+    public static Persona bPersonaUser(String u)throws Exception{
+        Persona per = new Persona();
+        //comunicarse con la base de datos
+        buscarPersonaU(u);
+        
+        //armar objeto Persona
+        
+        
+        return per;
         
     }
     

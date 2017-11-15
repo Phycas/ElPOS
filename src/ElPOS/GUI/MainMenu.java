@@ -300,7 +300,28 @@ public class MainMenu extends javax.swing.JFrame{
         mostrarCrearUsuario(uForm);
         
     }
+    
+    public javax.swing.JDesktopPane getEscritorio(){
+        
+        return escritorio;
+    }
+    
     private void mostrarCrearUsuario(CrearUsuarioForm uForm){
+        //abrir ventana CrearUsuarioForm
+        
+        escritorio.add(uForm);
+        
+        Dimension escrSize = escritorio.getSize();
+        Dimension salSize = uForm.getSize();
+         int width = (escrSize.width - salSize.width) / 2;
+         int height = (escrSize.height - salSize.height) / 2;
+        uForm.setLocation(width, height);
+                
+        uForm.show();
+        
+    }
+    
+    private void mostrarEditarUsuario(CrearUsuarioForm uForm){
         //abrir ventana CrearUsuarioForm
         
         escritorio.add(uForm);
