@@ -70,10 +70,23 @@ public class PersonasGestion {
     public static Persona bPersonaUser(String u)throws Exception{
         Persona per = new Persona();
         //comunicarse con la base de datos
-        buscarPersonaU(u);
+        ResultSet rs = buscarPersonaU(u);
         
         //armar objeto Persona
+        per.setUser(rs.getString("usuario"));
+        per.setPass(rs.getString("pass"));
+        per.setNombre(rs.getString("nombre"));
+        per.setApellido(rs.getString("apellido"));
+        per.setUser(rs.getString("usuario"));
+        Rut rut = new Rut();
+        rut.setRut(rs.getString("rut"));
         
+        Permisos permi = new Permisos();
+        permi.setPermisos(rs.getString("permisos"));
+        per.setPermisos(permi);
+        
+        per.setMail(rs.getString("mail"));
+        per.setCargo(rs.getString("cargo"));
         
         return per;
         

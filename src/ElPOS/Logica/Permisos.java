@@ -28,6 +28,14 @@ public class Permisos {
        productos = pro;
     }
     
+    public Permisos(){
+       admin = false; 
+       ventas = false; 
+       bodega = false;
+       historial = false; 
+       productos = false;
+    }
+    
     public String quePermisos()
     {
         StringBuilder permisos = new StringBuilder();
@@ -45,6 +53,60 @@ public class Permisos {
         permisos.append(pro);
         
         return permisos.toString();
+    }
+
+    public void setPermisos(String p){
+        String[] permi = p.split(",");
+        int[] nums = new int[permi.length];
+        for(int x = 0 ; x > permi.length; x++){
+            nums[x] = Integer.parseInt(permi[x]);
+        }
+        
+       this.admin = (nums[0] == 1); 
+       this.ventas = (nums[1] == 1); 
+       this.bodega = (nums[2] == 1);
+       this.historial = (nums[3] == 1); 
+       this.productos = (nums[4] == 1);
+    }
+    
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+    public boolean isVentas() {
+        return ventas;
+    }
+
+    public void setVentas(boolean ventas) {
+        this.ventas = ventas;
+    }
+
+    public boolean isBodega() {
+        return bodega;
+    }
+
+    public void setBodega(boolean bodega) {
+        this.bodega = bodega;
+    }
+
+    public boolean isHistorial() {
+        return historial;
+    }
+
+    public void setHistorial(boolean historial) {
+        this.historial = historial;
+    }
+
+    public boolean isProductos() {
+        return productos;
+    }
+
+    public void setProductos(boolean productos) {
+        this.productos = productos;
     }
     
 }

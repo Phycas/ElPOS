@@ -18,11 +18,12 @@ public class Rut {
                 this.rut = r;
                 this.dv = d;
 	}
-        
+        //constructor por defecto
         public Rut() {
 		
 	}
-	
+        
+        	
 	private Boolean verificarRut(Integer rut2, String dv2) {
 		Boolean estabien = false;
 		
@@ -65,4 +66,26 @@ public class Rut {
 		leRut = rut + "-" + dv;
 		return leRut;
 	}
+        
+        public void setRut(String r) throws Exception{
+            
+            String[] str = r.split("-");
+            int num1 = 0;
+            String dv = "";
+            try{
+                num1 = Integer.parseInt(str[0]);
+                dv = str[1];
+            } catch(Exception ex){
+                throw new Exception("Formato de rut incorrecto, "
+                        + "recuerde no usar puntos ni guion");
+            }
+            boolean funciona = verificarRut(num1, dv);
+            if(funciona){
+                this.rut = num1;
+                this.dv = dv;
+            } else {
+                throw new Exception("Error, rut no valido");
+            }
+           
+        }
 }

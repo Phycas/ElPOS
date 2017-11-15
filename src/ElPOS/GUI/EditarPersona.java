@@ -237,6 +237,8 @@ public class EditarPersona extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_rutTFActionPerformed
 
     private void configurar(){
+       
+        
        nombreTF.setText(este.getNombre());
        apellidoTF.setText(este.getApellido());
        usuarioTF.setText(este.getUser());

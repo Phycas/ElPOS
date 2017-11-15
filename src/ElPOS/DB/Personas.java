@@ -56,7 +56,7 @@ public class Personas {
     public static ResultSet buscarPersonaU(String user)throws Exception{
         StringBuilder query = new StringBuilder();
         Persona pers = new Persona();
-        query.append("SELECT * FROM personas WHERE usuario=");
+        query.append("SELECT * FROM personas WHERE usuario=phycas");
         query.append(user);
         query.append(";");
         
