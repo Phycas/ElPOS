@@ -68,3 +68,25 @@ La primera evaluación solamente se evaluará la GUI (Graphical User Interface). L
 		HTML o de texto donde se mostrará la ayuda para dicha ventana o funcionalidad.
 
 Es cuando puedo decir sobre la primera evaluación.
+
+Estimados,
+
+Les comento que las notas de la primera evaluación las tendré este fin de semana. Además, les adjunto lo que se evaluará para la segunda calificación que debe ser entregada, por acuerdo del curso, el 17 de noviembre.. 
+
+Switch
+Ciclo While
+Ciclo For
+Condicional If
+Métodos
+Parámetros en Métodos
+Try...Catch...Finally
+Clases
+Atributos
+getters/setters
+Herencia(Clases abstractas)
+Objeto ArrayList
+Objeto List
+Sentencia new
+Uso de interfaces. En este punto tener en cuenta que no se trata de las interfaces que se han implementado por medio de Netbeans, es decir, para la interfaz gráfica. Lo ideal es que algunas clases puedan implementar una o varias interfaces.
+Carga inicial de datos de prueba (Ver ejemplo de Biblioteca del semestre pasado)
+La interfaz gráfica debe mostrar los cambios realizados en la data de prueba. Por cambios debe entenderse como nuevos datos, cambio a datos ya existentes y eliminación de datos. Todo lo anterior respecto a los datos de pruebas. Recuerden que no se evaluará conexión a base de datos.

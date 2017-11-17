@@ -8,6 +8,7 @@ import ElPOS.Logica.Permisos;
 import ElPOS.Logica.Persona;
 import ElPOS.Logica.PersonasGestion;
 import ElPOS.Logica.Rut;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,6 +17,7 @@ import ElPOS.Logica.Rut;
 public class EditarPersona extends javax.swing.JInternalFrame {
     //Declaracion de variables
     private Persona este;
+    private Mensajes mensajes;
     /**
      * Creates new form EditarPersona
      */
@@ -246,7 +248,7 @@ public class EditarPersona extends javax.swing.JInternalFrame {
        mailTF.setText(este.getMail());
        cargoTF.setText(este.getCargo());
        
-       
+       mensajes = new Mensajes("test");
     }
     
     private void ingresarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarButtonActionPerformed
@@ -267,7 +269,7 @@ public class EditarPersona extends javax.swing.JInternalFrame {
             uRut = new Rut(
                 Integer.parseInt(rutTF.getText()), rutTF2.getText());
         } catch (Exception ex){
-            Mensajes.mostrarError("Rut invalido");
+            mostrarError(ex);
         }
         
         este.setRut(uRut);
@@ -276,12 +278,16 @@ public class EditarPersona extends javax.swing.JInternalFrame {
             PersonasGestion.editarPersona(este);
             dispose(); 
         } catch(Exception ex){
-            Mensajes.mostrarError(ex.getMessage());
+            mostrarError(ex);
         }
         
         
     }//GEN-LAST:event_ingresarButtonActionPerformed
 
+    public void mostrarError(Exception error){
+        JOptionPane.showMessageDialog(null,error);
+    }
+    
     private void cancelarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarButtonActionPerformed
         dispose();
     }//GEN-LAST:event_cancelarButtonActionPerformed

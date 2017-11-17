@@ -9,6 +9,7 @@ import ElPOS.Logica.Persona;
 import ElPOS.Logica.PersonasGestion;
 import java.awt.Dimension;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 /**
@@ -17,11 +18,13 @@ import javax.swing.JTable;
  */
 public class PersonalGestion extends javax.swing.JInternalFrame {
     private MainMenu mainM;
+    private Mensajes mensajes;
     /** Creates new form PersonalGestion */
     public PersonalGestion(MainMenu mainMenu) {
         initComponents();
          mainM = mainMenu;
         llenarTabla();
+        configurarMensajes();
     }
 
     /** This method is called from within the constructor to
@@ -146,6 +149,10 @@ public class PersonalGestion extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_botonCerrarActionPerformed
 
+    private void configurarMensajes(){
+        mensajes = new Mensajes("Welcome");
+    }
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         mostrarCrear();
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -182,27 +189,44 @@ public class PersonalGestion extends javax.swing.JInternalFrame {
         tabla.setModel(PersonasGestion.buildTableModel());
         } catch (Exception ex){
             String er = ex.getMessage();
-            Mensajes.mostrarError(er);
+            mensajes.mostrarError(er);
         }
     }
     
     //retorna la persona seleccionada en la tabla
     private Persona getSel(){
         Persona sel = new Persona();
-        
+        Mensajes mensajes = new Mensajes("editar: " + sel.getNombre());
         int row = tabla.getSelectedRow();
         String user = "phycas";
         try{
-        user = tabla.getValueAt(1,row).toString();
+        user = tabla.getValueAt(row, 0).toString();
+        dialogo("editar: " + user);
         } catch(Exception ex){
-            Mensajes.mostrarError(ex.getMessage());
+            dialogo("editar: " + sel.getNombre());
+            mostrarError(ex);
         }
         try{
         sel = PersonasGestion.bPersonaUser(user);
         } catch (Exception ex){
-            Mensajes.mostrarError(ex.getMessage());
+            mostrarError(ex);
         }
+        
+        dialogo("editar: " + sel.getNombre());
         return sel;
+    }
+    
+    public void mostrarError(Exception error){
+        JOptionPane.showMessageDialog(null,error);
+    }
+    
+    public void dialogo(String error){
+        JOptionPane.showMessageDialog(null,
+    error);
+    }
+    
+    private void error(){
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

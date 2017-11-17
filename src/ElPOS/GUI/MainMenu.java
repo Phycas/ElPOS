@@ -295,6 +295,9 @@ public class MainMenu extends javax.swing.JFrame{
             
         }
     }
+    
+    
+    
     public void cuf(){
         CrearUsuarioForm uForm = new CrearUsuarioForm();
         mostrarCrearUsuario(uForm);
@@ -322,7 +325,7 @@ public class MainMenu extends javax.swing.JFrame{
     }
     
     private void mostrarEditarUsuario(CrearUsuarioForm uForm){
-        //abrir ventana CrearUsuarioForm
+        
         
         escritorio.add(uForm);
         

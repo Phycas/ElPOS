@@ -56,9 +56,9 @@ public class Personas {
     public static ResultSet buscarPersonaU(String user)throws Exception{
         StringBuilder query = new StringBuilder();
         Persona pers = new Persona();
-        query.append("SELECT * FROM personas WHERE usuario=phycas");
+        query.append("SELECT * FROM personas WHERE usuario='");
         query.append(user);
-        query.append(";");
+        query.append("';");
         
         ResultSet rs = null;
         try{
@@ -67,7 +67,7 @@ public class Personas {
             rs = sta.executeQuery(query.toString());
 	}catch(Exception ex)
 		{
-			throw new Exception("Error al ejecutar la query, contacte a IT");
+                    throw new Exception("Error al ejecutar la query, contacte a IT: " + ex);
 		}
         
         

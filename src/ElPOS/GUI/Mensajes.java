@@ -20,8 +20,17 @@ public class Mensajes extends javax.swing.JInternalFrame {
         
     }
 
-    public static void mostrarError(String er){
-        Mensajes men = new Mensajes(er);
+    public void mostrarError(String er){
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                Mensajes men = new Mensajes(er);
+                men.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+                men.setVisible(true);
+                 
+                  }
+        });
     }
     
     

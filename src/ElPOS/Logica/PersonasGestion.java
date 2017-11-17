@@ -66,13 +66,19 @@ public class PersonasGestion {
 }
     
         
-        //buscar persona por rut en tabla personas
+        //buscar persona por usuario en tabla personas
     public static Persona bPersonaUser(String u)throws Exception{
         Persona per = new Persona();
         //comunicarse con la base de datos
-        ResultSet rs = buscarPersonaU(u);
+        ResultSet rs = null;
+        try{
+        rs = buscarPersonaU(u);
+        } catch(Exception ex){
+            throw new Exception("Error al buscar: " + ex);
+        }
         
-        //armar objeto Persona
+        //armar objeto Persona, pero solo si rs no est a vacio
+        if(rs.next()){
         per.setUser(rs.getString("usuario"));
         per.setPass(rs.getString("pass"));
         per.setNombre(rs.getString("nombre"));
@@ -87,7 +93,9 @@ public class PersonasGestion {
         
         per.setMail(rs.getString("mail"));
         per.setCargo(rs.getString("cargo"));
-        
+        } else{
+            throw new Exception("Error, ResultSet vacio");
+        }
         return per;
         
     }

@@ -255,6 +255,7 @@ public class CrearUsuarioForm extends javax.swing.JInternalFrame {
 
     private void ingresarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarButtonActionPerformed
         // Intentar ingresar la Persona
+        Mensajes mensajes = new Mensajes("editar: ");
         String nombre =  nombreTF.getText();
         String pass = passTF.getText();
         String user = usuarioTF.getText();
@@ -277,9 +278,9 @@ public class CrearUsuarioForm extends javax.swing.JInternalFrame {
         try{
             //(String u, String p, String n, String a, String m,String c, Rut r, Permisos permi)
             PersonasGestion.ingresarPersona(user, pass, nombre, apellido, mail, cargo, uRut, permis);
-            Mensajes.mostrarError("Usuario creado exitosamente");
+           mensajes.mostrarError("Usuario creado exitosamente");
         } catch(Exception ex){
-            Mensajes.mostrarError(ex.getMessage());
+            mensajes.mostrarError(ex.getMessage());
         }
         
         dispose();
