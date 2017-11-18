@@ -94,10 +94,10 @@ public class Personas {
         
            } catch(Exception ex){
             throw new Exception("Error al ejecutar query: " + ex.getMessage());
-            }/*
+            }
         finally{
             ps.close();
-        }   */            
+        }               
     }
     
     public static ResultSet buscarPersonaU(String user)throws Exception{

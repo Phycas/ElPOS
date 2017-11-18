@@ -158,7 +158,7 @@ public class LoginForm extends javax.swing.JDialog {
         */
         
         //comprobar nombre de usuario y contraseña
-        boolean esOno = true; //inicializacion variable de validacion (def. false)
+        boolean esOno = false; //inicializacion variable de validacion (def. false)
         String passw = String.valueOf(uPassT.getPassword());
         String uname = uNameT.getText();
         

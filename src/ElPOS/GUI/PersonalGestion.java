@@ -226,7 +226,7 @@ public class PersonalGestion extends PhyUXUtils {
         Persona sel = new Persona();
         Mensajes mensajes = new Mensajes("editar: " + sel.getNombre());
         int row = tabla.getSelectedRow();
-        String user = "phycas";
+        String user = "phycas paso por aqui";
         try{
         user = tabla.getValueAt(row, 0).toString();
         dialogo("editar: " + user);
