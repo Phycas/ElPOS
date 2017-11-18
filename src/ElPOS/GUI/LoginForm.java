@@ -158,16 +158,24 @@ public class LoginForm extends javax.swing.JDialog {
         */
         
         //comprobar nombre de usuario y contraseña
-        boolean esOno = false; //inicializacion variable de validacion (def. false)
+        boolean esOno = true; //inicializacion variable de validacion (def. false)
         String passw = String.valueOf(uPassT.getPassword());
         String uname = uNameT.getText();
+        escribir(uname);
+        escribir(passw);
         
         
         Persona user = new Persona(); //inicializacion del usuario que se esta logeando
         //llenar user con datos de la base de datos
         
        
-        
+        try{
+            //esOno = PersonasGestion.login(uname, passw);
+            escribir("Comparando datos");
+          } catch(Exception ex){
+            escribir(ex.getMessage());
+          }
+        user.setNombre(uname);
         MainMenu menu = new MainMenu(user);
         //si user/pass es correcto pasar al menu principal
         if(esOno){
@@ -225,6 +233,10 @@ public class LoginForm extends javax.swing.JDialog {
             }
         });
     }
+    
+   private void escribir(String m){
+       consolin.setText(consolin.getText() + "\n" + m);
+   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea consolin;

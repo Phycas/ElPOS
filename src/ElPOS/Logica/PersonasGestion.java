@@ -121,6 +121,20 @@ public class PersonasGestion {
         
     }
     
+    public static boolean login(String user, String pass) throws Exception{
+        boolean estabien = false;
+        ResultSet rs = null;
+        try{
+        rs = buscarPersonaU(user);
+        boolean  si1 = user.equals(rs.getString("usuario"));
+        boolean si2 = pass.equals(rs.getString("pass"));
+        estabien = si1 && si2;
+        }catch (Exception ex){
+            throw new Exception("error en el boolean estabien: \n" + ex);
+        }
+       return estabien;
+    }
+    
     public static void regDios(){
         registrarADIOS();
     }
