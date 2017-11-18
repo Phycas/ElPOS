@@ -3,6 +3,7 @@ Esta clase gestiona la informacion de la tabla personas
  */
 package ElPOS.Logica;
 
+import ElPOS.DB.Personas;
 import static ElPOS.DB.Personas.buscarPersonaU;
 import static ElPOS.DB.Personas.crearPersona;
 import static ElPOS.DB.Personas.getTabla;
@@ -23,18 +24,36 @@ public class PersonasGestion {
             String c, Rut r, Permisos permi) throws Exception{
         Persona persona = new Persona(u,p,n,a,m,c,r,permi);
         
+        
         //comprobar rut
+        if(persona.getRut().getDV() == null){
+            throw new Exception("Error: Rut invalido");
+        }
         //comprobar que usuario no se repite en la DB
         
         try{
         crearPersona(persona);
         } catch(Exception ex){
-            throw new Exception("Error de datos");
+            throw new Exception("Error de datos" + ex.getMessage());
         }
+    }
+    
+    public static void borrarPersona(String u) throws Exception{
+        /// validaciones
+        
+        /// borrar persona
+        try{
+       Personas.borrarPersonU(u);
+        } catch(Exception ex){
+            throw new Exception("Error en borrarPersona: " + ex);
+        }
+        
+        
     }
     
     public static void editarPersona(Persona user) throws Exception{
         
+        Personas.editPerson(user);
     }
     
     //TableModel con datos de tabla personas
@@ -84,8 +103,10 @@ public class PersonasGestion {
         per.setNombre(rs.getString("nombre"));
         per.setApellido(rs.getString("apellido"));
         per.setUser(rs.getString("usuario"));
+        //rut
         Rut rut = new Rut();
         rut.setRut(rs.getString("rut"));
+        per.setRut(rut);
         
         Permisos permi = new Permisos();
         permi.setPermisos(rs.getString("permisos"));

@@ -1,6 +1,9 @@
 
 package ElPOS.Logica;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Phycas
@@ -36,6 +39,18 @@ public class Permisos {
        productos = false;
     }
     
+    public List<Boolean> getPermisosList(){
+        List<Boolean> listita = new ArrayList();
+        
+        listita.add(this.admin);
+        listita.add(this.ventas);
+        listita.add(this.bodega);
+        listita.add(this.historial);
+        listita.add(this.productos);
+        
+        return listita;
+    }
+   
     public String quePermisos()
     {
         StringBuilder permisos = new StringBuilder();
@@ -54,7 +69,7 @@ public class Permisos {
         
         return permisos.toString();
     }
-
+    //crea permisos a partir de una string 1,1,1,1,1
     public void setPermisos(String p){
         String[] permi = p.split(",");
         int[] nums = new int[permi.length];

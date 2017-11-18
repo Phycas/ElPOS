@@ -247,8 +247,24 @@ public class EditarPersona extends javax.swing.JInternalFrame {
        passTF.setText(este.getPass());
        mailTF.setText(este.getMail());
        cargoTF.setText(este.getCargo());
+       String rutito = Integer.toString(este.getRut().getNumeros());
+       rutTF.setText(rutito);
+       rutTF2.setText(este.getRut().getDV());
        
-       mensajes = new Mensajes("test");
+       configurarPermisos(este.getPermisos());
+    }
+    
+    private void configurarPermisos(Permisos p){
+      /*Radio Buttons:
+        ventasRB, adminrRB, bodegaRB, historialRB, productosRB
+        */
+      
+      ventasRB.setSelected(p.isVentas());
+      adminRB.setSelected(p.isAdmin());
+      bodegaRB.setSelected(p.isBodega());
+      historialRB.setSelected(p.isHistorial());
+      productosRB.setSelected(p.isProductos());
+      
     }
     
     private void ingresarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ingresarButtonActionPerformed
@@ -276,11 +292,11 @@ public class EditarPersona extends javax.swing.JInternalFrame {
         
         try{
             PersonasGestion.editarPersona(este);
-            dispose(); 
+            
         } catch(Exception ex){
             mostrarError(ex);
         }
-        
+        dispose(); 
         
     }//GEN-LAST:event_ingresarButtonActionPerformed
 

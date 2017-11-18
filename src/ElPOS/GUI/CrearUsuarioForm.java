@@ -12,7 +12,7 @@ import ElPOS.Logica.Rut;
  *
  * @author Phycas
  */
-public class CrearUsuarioForm extends javax.swing.JInternalFrame {
+public class CrearUsuarioForm extends PhyUXUtils {
     private Rut uRut = new Rut();
     /**
      * Creates new form CrearUsuarioForm
@@ -278,9 +278,9 @@ public class CrearUsuarioForm extends javax.swing.JInternalFrame {
         try{
             //(String u, String p, String n, String a, String m,String c, Rut r, Permisos permi)
             PersonasGestion.ingresarPersona(user, pass, nombre, apellido, mail, cargo, uRut, permis);
-           mensajes.mostrarError("Usuario creado exitosamente");
+           dialogo("Usuario creado exitosamente");
         } catch(Exception ex){
-            mensajes.mostrarError(ex.getMessage());
+            mostrarError(ex);
         }
         
         dispose();

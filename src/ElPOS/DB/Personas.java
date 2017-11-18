@@ -49,8 +49,55 @@ public class Personas {
 		}
     }
     
-    public static void editPerson(Persona p){
-       
+    public static void editPerson(Persona p) throws Exception{
+       try{
+			Connection conn = getConnection(); 
+			//Preparando la query
+                            //WIP
+                        
+                        String query = "UPDATE personas SET pass = ?, nombre = ?, "
+                                + "apellido=?, rut=?, permisos=?, mail=?, cargo=? WHERE usuario=?";//hacer esta parte con string builder
+                        PreparedStatement ps = conn.prepareStatement(query);// la query va en la string 
+                        //darle los parametros
+                        ps.setString(1,p.getPass());
+                        ps.setString(2,p.getNombre());
+                        ps.setString(3,p.getApellido());
+                        
+                        ps.setString(4,p.getRut().getRut());
+                        ps.setString(5,p.getPermisos().quePermisos());
+                        ps.setString(6,p.getMail());
+                        ps.setString(7,p.getCargo()); 
+                        
+                        //usuario a modificar
+                        ps.setString(8,p.getUser()); 
+                        
+                        ps.executeUpdate();
+                        ps.close();
+		}
+		catch(Exception ex)
+		{
+			throw new Exception("Error al ejecutar la query, contacte a IT: " + ex.getMessage()); 
+                }
+    }
+    
+    public static void borrarPersonU(String user) throws Exception{
+        
+        Connection conn = getConnection();
+        
+         String query = "DELETE FROM personas"
+                + " WHERE usuario=?";//hacer esta parte con string builder
+        PreparedStatement ps = conn.prepareStatement(query);
+        try{
+         //darle los parametros
+        ps.setString(1,user);
+        ps.executeUpdate();
+        
+           } catch(Exception ex){
+            throw new Exception("Error al ejecutar query: " + ex.getMessage());
+            }/*
+        finally{
+            ps.close();
+        }   */            
     }
     
     public static ResultSet buscarPersonaU(String user)throws Exception{

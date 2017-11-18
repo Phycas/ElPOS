@@ -88,4 +88,13 @@ public class Rut {
             }
            
         }
+        
+        public int getNumeros(){
+            return this.rut;
+        }
+        
+        
+        public String getDV(){
+            return this.dv;
+        }
 }
