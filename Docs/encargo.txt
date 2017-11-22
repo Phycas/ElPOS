@@ -90,3 +90,34 @@ Sentencia new
 Uso de interfaces. En este punto tener en cuenta que no se trata de las interfaces que se han implementado por medio de Netbeans, es decir, para la interfaz gráfica. Lo ideal es que algunas clases puedan implementar una o varias interfaces.
 Carga inicial de datos de prueba (Ver ejemplo de Biblioteca del semestre pasado)
 La interfaz gráfica debe mostrar los cambios realizados en la data de prueba. Por cambios debe entenderse como nuevos datos, cambio a datos ya existentes y eliminación de datos. Todo lo anterior respecto a los datos de pruebas. Recuerden que no se evaluará conexión a base de datos.
+
+
+Estimados,
+
+Adjunto lo que se evaluará en la última entrega.
+
+Menú				3 OK
+Login				3 OK
+App MDI				3 OK
+Al menos 3 Menús		3 -
+Teclas Rápidas			3 -
+Uso JInternalFrame		3 OK
+Uso de Grids			3 OK
+Interface (Eventos)		3 OK
+Uso tecla ALT+F4		3 OK
+Modal de Salida			3 ?¿
+Ventana edición de datos	3 OK
+Botón de ayuda			3 -
+Conexión a BD			3 OK
+Prepared Statement		3 OK
+
+Total				42
+Nota				7
+
+No Presente/No Funciona		0
+Presente/No Funciona		1
+Presente/Incompleto		2
+Presente/Funciona		3
+
+
+Cómo pueden ver se revisará la aplicación completa funcionando. Más del 50% de lo que se evaluará ya fue evaluado en la primera entrega.
