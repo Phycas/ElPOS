@@ -18,11 +18,28 @@ import java.sql.Statement;
 public class Personas {
     
     //ver si X persona existe en la DB
-    public static boolean existe(String user, String pass){
+    public static boolean existe (String user, String pass)throws Exception{
         boolean esreal = false;
-        
         // terminar
-   
+        StringBuilder query = new StringBuilder();
+        //Persona pers = new Persona();
+        query.append("SELECT * FROM personas WHERE usuario='");
+        query.append(user);
+        query.append("';");
+       
+        
+        ResultSet rs = null;
+        try{
+            Connection con = PhyDB.getConnection();
+            Statement sta = con.createStatement();
+            rs = sta.executeQuery(query.toString()); //esto siempre queda vacio
+	}catch(Exception ex)
+		{
+                    throw new Exception("Error al ejecutar la query, contacte a IT: " + ex);
+		}
+        if(rs.next() && user.equals(rs.getString("usuario")) && pass.equals(rs.getString("pass"))){
+           esreal = true;
+        }
         return esreal;
     }
     
@@ -52,8 +69,7 @@ public class Personas {
     public static void editPerson(Persona p) throws Exception{
        try{
 			Connection conn = getConnection(); 
-			//Preparando la query
-                            //WIP
+			//WIP
                         
                         String query = "UPDATE personas SET pass = ?, nombre = ?, "
                                 + "apellido=?, rut=?, permisos=?, mail=?, cargo=? WHERE usuario=?";//hacer esta parte con string builder
@@ -105,7 +121,7 @@ public class Personas {
         Persona pers = new Persona();
         query.append("SELECT * FROM personas WHERE usuario='");
         query.append(user);
-        query.append("';");
+        query.append("'");
         
         ResultSet rs = null;
         try{
