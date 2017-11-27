@@ -1,4 +1,4 @@
-Proyect charter
+Project charter
 Toma Requerimientos
 Estudio viabilidad
 Estimación		Listo

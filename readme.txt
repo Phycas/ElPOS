@@ -28,7 +28,7 @@ Presente/Funciona		3
 
 Documentos Necesarios:
 
-Proyect charter
+Project charter
 Toma Requerimientos
 Estudio viabilidad
 Estimación		Listo
