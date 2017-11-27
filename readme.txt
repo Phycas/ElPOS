@@ -28,9 +28,9 @@ Presente/Funciona		3
 
 Documentos Necesarios:
 
-Project charter
-Toma Requerimientos
+Project charter		Listo
 Estudio viabilidad
 Estimación		Listo
-Diseño Funcional
 Planificación		Listo
+Toma Requerimientos
+Diseño Funcional
