@@ -24,3 +24,13 @@ No Presente/No Funciona		0
 Presente/No Funciona		1
 Presente/Incompleto		2
 Presente/Funciona		3
+
+
+Documentos Necesarios:
+
+Proyect charter
+Toma Requerimientos
+Estudio viabilidad
+Estimación		Listo
+Diseño Funcional
+Planificación		Listo
