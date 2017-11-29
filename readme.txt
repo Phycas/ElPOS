@@ -13,7 +13,7 @@ Interface (Eventos)		3 OK
 Uso tecla ALT+F4		3 OK
 Modal de Salida			3 Ok
 Ventana edición de datos	3 OK
-Botón de ayuda			3 -
+Botón de ayuda			3 OK
 Conexión a BD			3 OK
 Prepared Statement		3 OK
 
@@ -29,8 +29,8 @@ Presente/Funciona		3
 Documentos Necesarios:
 
 Project charter		Listo
-Estudio viabilidad
+Estudio viabilidad	Revisar
 Estimación		Listo
 Planificación		Listo
-Toma Requerimientos
+Toma Requerimientos	WIP
 Diseño Funcional
