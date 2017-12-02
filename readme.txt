@@ -29,7 +29,7 @@ Presente/Funciona		3
 Documentos Necesarios:
 
 Project charter		Listo
-Estudio viabilidad	Revisar
+Estudio viabilidad	Listo
 Estimación		Listo
 Planificación		Listo
 Toma Requerimientos	WIP
