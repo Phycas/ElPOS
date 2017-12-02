@@ -33,4 +33,4 @@ Estudio viabilidad	Listo
 Estimación		Listo
 Planificación		Listo
 Toma Requerimientos	Listo
-Diseño Funcional
+Diseño Funcional	WIP
