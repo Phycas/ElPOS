@@ -32,5 +32,5 @@ Project charter		Listo
 Estudio viabilidad	Listo
 Estimación		Listo
 Planificación		Listo
-Toma Requerimientos	WIP
+Toma Requerimientos	Listo
 Diseño Funcional
