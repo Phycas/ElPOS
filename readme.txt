@@ -6,7 +6,7 @@ Menú				3 OK
 Login				3 OK
 App MDI				3 OK
 Al menos 3 Menús		3 Ok
-Teclas Rápidas			3 -
+Teclas Rápidas			3 OK
 Uso JInternalFrame		3 OK
 Uso de Grids			3 OK
 Interface (Eventos)		3 OK
