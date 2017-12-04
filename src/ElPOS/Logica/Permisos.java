@@ -77,11 +77,12 @@ public class Permisos {
             nums[x] = Integer.parseInt(permi[x]);
         }
         
-       this.admin = (nums[0] == 1); 
-       this.ventas = (nums[1] == 1); 
-       this.bodega = (nums[2] == 1);
-       this.historial = (nums[3] == 1); 
-       this.productos = (nums[4] == 1);
+       this.admin = (permi[0].equals("1")); 
+       //this.admin = true; 
+       this.ventas = (permi[1].equals("1"));  
+       this.bodega = (permi[2].equals("1")); 
+       this.historial = (permi[3].equals("1"));  
+       this.productos = (permi[4].equals("1")); 
     }
     
     public boolean isAdmin() {

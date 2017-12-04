@@ -224,14 +224,11 @@ public class PersonalGestion extends PhyUXUtils {
     //retorna la persona seleccionada en la tabla
     private Persona getSel(){
         Persona sel = new Persona();
-        Mensajes mensajes = new Mensajes("editar: " + sel.getNombre());
         int row = tabla.getSelectedRow();
         String user = "phycas paso por aqui";
         try{
         user = tabla.getValueAt(row, 0).toString();
-        dialogo("editar: " + user);
         } catch(Exception ex){
-            dialogo("editar: " + sel.getNombre());
             mostrarError(ex);
         }
         try{
@@ -240,7 +237,7 @@ public class PersonalGestion extends PhyUXUtils {
             mostrarError(ex);
         }
         
-        dialogo("editar: " + sel.getNombre());
+       
         return sel;
     }
     

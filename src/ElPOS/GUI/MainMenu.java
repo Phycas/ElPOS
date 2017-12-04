@@ -6,6 +6,7 @@
 package ElPOS.GUI;
 
 
+import ElPOS.Logica.Permisos;
 import ElPOS.Logica.Persona;
 import java.awt.Dimension;
 import java.awt.Frame;
@@ -40,10 +41,11 @@ public class MainMenu extends javax.swing.JFrame{
         F1 = Ayuda
         F9 = Personal
     */
-    
+    private Persona usuario;
+
    
     public MainMenu(Persona user) {
-        Persona usuario = new Persona(user);
+        usuario = user;
         this.setUndecorated(true);
         
         
@@ -58,7 +60,12 @@ public class MainMenu extends javax.swing.JFrame{
         initComponents();
         
         //saludoLabel = label esquina superior derecha 
-        saludoLabel.setText("Bienvenido, " + user.getNombre() + ".");
+        saludoLabel.setText("Bienvenido, " + usuario.getNombre() + ".");
+        imprimirPermisos(usuario.getPermisos());
+        // configurar permisos
+        configurarPermisos(usuario.getPermisos());
+        
+        
         
       }
     /**
@@ -89,18 +96,19 @@ public class MainMenu extends javax.swing.JFrame{
         tiendasLabel1 = new javax.swing.JLabel();
         minLabel = new javax.swing.JLabel();
         historialLabel1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem11 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        proMenu = new javax.swing.JMenuItem();
+        cajaMenu = new javax.swing.JMenuItem();
+        zMenu = new javax.swing.JMenuItem();
+        bodegaMenu = new javax.swing.JMenuItem();
+        tiendasMenu = new javax.swing.JMenuItem();
+        historialMenu = new javax.swing.JMenuItem();
+        personalMenu = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -130,12 +138,12 @@ public class MainMenu extends javax.swing.JFrame{
             .addGroup(escritorioLayout.createSequentialGroup()
                 .addGap(289, 289, 289)
                 .addComponent(msn)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(851, Short.MAX_VALUE))
         );
         escritorioLayout.setVerticalGroup(
             escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, escritorioLayout.createSequentialGroup()
-                .addContainerGap(526, Short.MAX_VALUE)
+                .addContainerGap(524, Short.MAX_VALUE)
                 .addComponent(msn)
                 .addGap(18, 18, 18)
                 .addComponent(helpButton)
@@ -242,6 +250,10 @@ public class MainMenu extends javax.swing.JFrame{
         desktopPane.add(historialLabel1);
         historialLabel1.setBounds(580, 30, 100, 30);
 
+        jLabel1.setText("Permisos:");
+        desktopPane.add(jLabel1);
+        jLabel1.setBounds(20, 10, 90, 16);
+
         jMenuBar2.setOpaque(false);
 
         jMenu1.setText("File");
@@ -263,68 +275,68 @@ public class MainMenu extends javax.swing.JFrame{
 
         jMenu4.setText("Funciones");
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
-        jMenuItem3.setText("Productos");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        proMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F2, 0));
+        proMenu.setText("Productos");
+        proMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                proMenuActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem3);
+        jMenu4.add(proMenu);
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
-        jMenuItem4.setText("Caja");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        cajaMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
+        cajaMenu.setText("Caja");
+        cajaMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                cajaMenuActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem4);
+        jMenu4.add(cajaMenu);
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
-        jMenuItem5.setText("Cierre Z");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        zMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, 0));
+        zMenu.setText("Cierre Z");
+        zMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                zMenuActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem5);
+        jMenu4.add(zMenu);
 
-        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
-        jMenuItem9.setText("Bodegas");
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+        bodegaMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F5, 0));
+        bodegaMenu.setText("Bodegas");
+        bodegaMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
+                bodegaMenuActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem9);
+        jMenu4.add(bodegaMenu);
 
-        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
-        jMenuItem7.setText("Tiendas");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+        tiendasMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F6, 0));
+        tiendasMenu.setText("Tiendas");
+        tiendasMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
+                tiendasMenuActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem7);
+        jMenu4.add(tiendasMenu);
 
-        jMenuItem8.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F7, 0));
-        jMenuItem8.setText("Historial");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        historialMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F7, 0));
+        historialMenu.setText("Historial");
+        historialMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                historialMenuActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem8);
+        jMenu4.add(historialMenu);
 
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F8, 0));
-        jMenuItem6.setText("Personal");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        personalMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F8, 0));
+        personalMenu.setText("Personal");
+        personalMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                personalMenuActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem6);
+        jMenu4.add(personalMenu);
 
         jMenuBar2.add(jMenu4);
 
@@ -344,6 +356,32 @@ public class MainMenu extends javax.swing.JFrame{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void imprimirPermisos(Permisos p){
+        Permisos permisos = p;
+        escribir(permisos.quePermisos());
+        String m = permisos.isProductos() ? "Productos" : "no Productos";
+        escribir(m);
+    }
+    
+    //configurar la visibilidad de los controles segun permisos
+    private void configurarPermisos(Permisos p){
+        Permisos permisos = p;
+        proMenu.setVisible(permisos.isProductos() || permisos.isAdmin());
+        productosLabel.setVisible(permisos.isProductos() || permisos.isAdmin());
+        cajaMenu.setVisible(permisos.isVentas() || permisos.isAdmin());
+        cajaLabel.setVisible(permisos.isVentas() || permisos.isAdmin());
+        zMenu.setVisible(permisos.isVentas() || permisos.isAdmin());
+        zLabel.setVisible(permisos.isVentas() || permisos.isAdmin());
+        bodegaMenu.setVisible(permisos.isBodega() || permisos.isAdmin());
+        bodegasLabel.setVisible(permisos.isBodega() || permisos.isAdmin());
+        tiendasMenu.setVisible(permisos.isBodega() || permisos.isAdmin());
+        tiendasLabel1.setVisible(permisos.isBodega() || permisos.isAdmin());
+        historialMenu.setVisible(permisos.isHistorial() || permisos.isAdmin());
+        historialLabel1.setVisible(permisos.isHistorial() || permisos.isAdmin());
+        personalMenu.setVisible(permisos.isAdmin());
+        personalLabel.setVisible(permisos.isAdmin());
+    }
+    
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         // TODO add your handling code here:
         salir();
@@ -386,37 +424,37 @@ public class MainMenu extends javax.swing.JFrame{
      
     }//GEN-LAST:event_personalLabelKeyTyped
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void proMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proMenuActionPerformed
        mostrarProductos();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_proMenuActionPerformed
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         salir();
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void cajaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cajaMenuActionPerformed
        mostrarCaja();
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_cajaMenuActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void zMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zMenuActionPerformed
         mostrarZ();
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_zMenuActionPerformed
 
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+    private void bodegaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bodegaMenuActionPerformed
         mostrarBodegas();
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    }//GEN-LAST:event_bodegaMenuActionPerformed
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+    private void tiendasMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tiendasMenuActionPerformed
         mostrarTiendas();
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+    }//GEN-LAST:event_tiendasMenuActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void historialMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_historialMenuActionPerformed
         mostrarHistorial();
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    }//GEN-LAST:event_historialMenuActionPerformed
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+    private void personalMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personalMenuActionPerformed
         mostarPersonal();
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_personalMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -489,6 +527,7 @@ public class MainMenu extends javax.swing.JFrame{
     
    private void mostarPersonal(){
        //abrir ventana PersonalGestion
+       if(usuario.getPermisos().isAdmin()){
         PersonalGestion perForm = new PersonalGestion(this);
         escritorio.add(perForm);
         
@@ -499,8 +538,10 @@ public class MainMenu extends javax.swing.JFrame{
         perForm.setLocation(width, height);
                 
         perForm.show();
+       }
    }    
     private void mostrarHistorial(){
+        if(usuario.getPermisos().isHistorial() || usuario.getPermisos().isAdmin()){
          HistorialGestion hForm = new HistorialGestion();
         escritorio.add(hForm);
         
@@ -511,10 +552,11 @@ public class MainMenu extends javax.swing.JFrame{
         hForm.setLocation(width, height);
                 
         hForm.show();
-        
+        }
     }
     
     private void mostrarTiendas(){
+        if(usuario.getPermisos().isProductos() || usuario.getPermisos().isAdmin()){
          TiendasGestion prodForm = new TiendasGestion();
         escritorio.add(prodForm);
         
@@ -525,10 +567,11 @@ public class MainMenu extends javax.swing.JFrame{
         prodForm.setLocation(width, height);
                 
         prodForm.show();
-        
+        }
     }
     
     private void mostrarProductos(){
+        if(usuario.getPermisos().isProductos() || usuario.getPermisos().isAdmin()){
          ProductosGestion prodForm = new ProductosGestion();
         escritorio.add(prodForm);
         
@@ -539,10 +582,11 @@ public class MainMenu extends javax.swing.JFrame{
         prodForm.setLocation(width, height);
                 
         prodForm.show();
-        
+        }
     }
     
     private void mostrarZ(){
+        if(usuario.getPermisos().isVentas() || usuario.getPermisos().isAdmin()){
          Zform zForm = new Zform();
         escritorio.add(zForm);
         
@@ -553,10 +597,11 @@ public class MainMenu extends javax.swing.JFrame{
         zForm.setLocation(width, height);
                 
         zForm.show();
-        
+        }
     }
     
     private void mostrarBodegas(){
+        if(usuario.getPermisos().isBodega() || usuario.getPermisos().isAdmin()){
          BodegasGestion bForm = new BodegasGestion();
         escritorio.add(bForm);
         
@@ -567,10 +612,11 @@ public class MainMenu extends javax.swing.JFrame{
         bForm.setLocation(width, height);
                 
         bForm.show();
-        
+        }
     }
     
     private void mostrarCaja(){
+        if(usuario.getPermisos().isVentas() || usuario.getPermisos().isAdmin()){
         VentasGestion cajaForm = new VentasGestion();
         escritorio.add(cajaForm);
         
@@ -581,7 +627,7 @@ public class MainMenu extends javax.swing.JFrame{
         cajaForm.setLocation(width, height);
                 
         cajaForm.show();
-        
+        }
     }
     
     
@@ -606,14 +652,22 @@ public class MainMenu extends javax.swing.JFrame{
         JOptionPane.showMessageDialog(this,
     error);
     }
+    
+    private void escribir(String m){
+        //consolita.setText(consolita.getText() + "\n" + m);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem bodegaMenu;
     private javax.swing.JLabel bodegasLabel;
     private javax.swing.JLabel cajaLabel;
+    private javax.swing.JMenuItem cajaMenu;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JDesktopPane escritorio;
     private javax.swing.JButton helpButton;
     private javax.swing.JLabel historialLabel1;
+    private javax.swing.JMenuItem historialMenu;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -625,20 +679,17 @@ public class MainMenu extends javax.swing.JFrame{
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JLabel minLabel;
     private javax.swing.JLabel msn;
     private javax.swing.JLabel personalLabel;
+    private javax.swing.JMenuItem personalMenu;
+    private javax.swing.JMenuItem proMenu;
     private javax.swing.JLabel productosLabel;
     private javax.swing.JLabel saludoLabel;
     private javax.swing.JLabel tiendasLabel1;
+    private javax.swing.JMenuItem tiendasMenu;
     private javax.swing.JLabel zLabel;
+    private javax.swing.JMenuItem zMenu;
     // End of variables declaration//GEN-END:variables
 
 }

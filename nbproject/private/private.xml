@@ -6,12 +6,14 @@
             <file>file:/C:/Users/Phycas/Documents/NetBeansProjects/ElPOS_NicolasPartarrieu/src/ElPOS/GUI/PhyUXUtils.java</file>
             <file>file:/C:/Users/Phycas/Documents/NetBeansProjects/ElPOS_NicolasPartarrieu/src/ElPOS/GUI/CrearUsuarioForm.java</file>
             <file>file:/C:/Users/Phycas/Documents/NetBeansProjects/ElPOS_NicolasPartarrieu/src/ElPOS/Logica/Persona.java</file>
+            <file>file:/C:/Users/Phycas/Documents/NetBeansProjects/ElPOS_NicolasPartarrieu/src/ElPOS/Logica/PersonasGestion.java</file>
             <file>file:/C:/Users/Phycas/Documents/NetBeansProjects/ElPOS_NicolasPartarrieu/src/ElPOS/GUI/LoginForm.java</file>
             <file>file:/C:/Users/Phycas/Documents/NetBeansProjects/ElPOS_NicolasPartarrieu/src/ElPOS/GUI/MainMenu.java</file>
             <file>file:/C:/Users/Phycas/Documents/NetBeansProjects/ElPOS_NicolasPartarrieu/src/ElPOS/Logica/Login.java</file>
             <file>file:/C:/Users/Phycas/Documents/NetBeansProjects/ElPOS_NicolasPartarrieu/src/ElPOS/Logica/Rut.java</file>
             <file>file:/C:/Users/Phycas/Documents/NetBeansProjects/ElPOS_NicolasPartarrieu/src/ElPOS/GUI/EditarPersona.java</file>
             <file>file:/C:/Users/Phycas/Documents/NetBeansProjects/ElPOS_NicolasPartarrieu/src/ElPOS/GUI/PersonalGestion.java</file>
+            <file>file:/C:/Users/Phycas/Documents/NetBeansProjects/ElPOS_NicolasPartarrieu/src/ElPOS/Logica/Permisos.java</file>
         </group>
     </open-files>
 </project-private>
