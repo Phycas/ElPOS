@@ -34,6 +34,13 @@ public class MainMenu extends javax.swing.JFrame{
     /**
      * Creates new form MainMenu
      */
+    /*
+    Teclas de acceso rapido
+        Alt+f4 = Salir
+        F1 = Ayuda
+        F9 = Personal
+    */
+    
    
     public MainMenu(Persona user) {
         Persona usuario = new Persona(user);
@@ -82,6 +89,16 @@ public class MainMenu extends javax.swing.JFrame{
         tiendasLabel1 = new javax.swing.JLabel();
         minLabel = new javax.swing.JLabel();
         historialLabel1 = new javax.swing.JLabel();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -156,6 +173,11 @@ public class MainMenu extends javax.swing.JFrame{
                 personalLabelMouseClicked(evt);
             }
         });
+        personalLabel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                personalLabelKeyTyped(evt);
+            }
+        });
         desktopPane.add(personalLabel);
         personalLabel.setBounds(680, 30, 100, 30);
 
@@ -218,6 +240,41 @@ public class MainMenu extends javax.swing.JFrame{
         desktopPane.add(historialLabel1);
         historialLabel1.setBounds(580, 30, 100, 30);
 
+        jMenu1.setText("File");
+        jMenuBar2.add(jMenu1);
+
+        jMenu4.setText("Funciones");
+
+        jMenuItem3.setText("Productos");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem3);
+
+        jMenuItem4.setText("Caja");
+        jMenu4.add(jMenuItem4);
+
+        jMenuItem5.setText("Cierre Z");
+        jMenu4.add(jMenuItem5);
+
+        jMenuItem9.setText("Bodegas");
+        jMenu4.add(jMenuItem9);
+
+        jMenuItem7.setText("Tiendas");
+        jMenu4.add(jMenuItem7);
+
+        jMenuItem8.setText("Historial");
+        jMenu4.add(jMenuItem8);
+
+        jMenuItem6.setText("Personal");
+        jMenu4.add(jMenuItem6);
+
+        jMenuBar2.add(jMenu4);
+
+        setJMenuBar(jMenuBar2);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -226,7 +283,7 @@ public class MainMenu extends javax.swing.JFrame{
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
         );
 
         pack();
@@ -269,6 +326,17 @@ public class MainMenu extends javax.swing.JFrame{
     private void historialLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_historialLabel1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_historialLabel1MouseClicked
+
+    private void personalLabelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_personalLabelKeyTyped
+        // si presiona F9 abrir gestor de personal
+        if (evt.getKeyCode() == KeyEvent.VK_F9) {
+        mostarPersonal();
+    }
+    }//GEN-LAST:event_personalLabelKeyTyped
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -467,11 +535,21 @@ public class MainMenu extends javax.swing.JFrame{
     private javax.swing.JButton helpButton;
     private javax.swing.JLabel historialLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JLabel minLabel;
     private javax.swing.JLabel msn;
     private javax.swing.JLabel personalLabel;

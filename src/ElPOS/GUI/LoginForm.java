@@ -1,5 +1,5 @@
 /*
- 
+ @author Phycas
  */
 package ElPOS.GUI;
 
