@@ -1,3 +1,8 @@
+Base de Datos:
+nombre: elgranpos
+el archivo personas.sql contiene la tabla que se usa, el usuario admin(contraseña: admin) tiene permisos de administrador.
+
+
 Estimados,
 
 Adjunto lo que se evaluará en la última entrega.
